@@ -12,6 +12,6 @@ chmod +x ./lite-linux-amd64
 
 # Run LiteSpeedTest with the specified configuration
 echo "Running LiteSpeedTest..."
-sudo nohup ./lite-linux-amd64 --config ./lite_config.json --test subs >speedtest.log 2>&1 &
+sudo nohup sh -c 'set -x; ./lite-linux-amd64 --config ./lite_config.json --test subs' >speedtest.log 2>&1 &
 
 echo "LiteSpeedTest started in the background."
