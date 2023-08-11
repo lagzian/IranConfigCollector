@@ -1,6 +1,7 @@
 name: Speed Test
 
 on:
+  workflow_dispatch:
   push:
     paths:
       - "./EternityBase"
