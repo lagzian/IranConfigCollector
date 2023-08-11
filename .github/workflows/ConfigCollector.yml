@@ -33,7 +33,7 @@ jobs:
     
     - name: Create merge1.txt
       run: |
-        cat ./bulk/vmess_iran.txt ./bulk/trojan_iran.txt > ./bulk/merge1.txt
+        cat ./bulk/ss_iran.txt ./bulk/trojan_iran.txt > ./bulk/merge1.txt
         sed -i '/^\(ss:\/\/\|trojan:\/\/\)/!d' ./bulk/merge1.txt
     
     - name: Create merge2.txt
