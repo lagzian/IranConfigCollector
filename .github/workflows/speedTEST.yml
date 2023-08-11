@@ -34,7 +34,7 @@ jobs:
       - name: Run Lite Speedtest
         run: |
           sleep 5
-          sudo sh ./utils/speedtest/speedtest2_yaml.sh
+          sudo sh ./utils/speedtest/speedtest2.sh
           python ./utils/speedtest/output.py
 
       - name: Commit Changes
