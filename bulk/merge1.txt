@@ -1,4 +1,3 @@
-trojan://af4dc66a-ec88-4057-9e46-777b584577f7@my.mjt001.com:443/?type=tcp&security=tls#
 trojan://telegram-id-privatevpns@35.177.231.139:22222?security=tls&alpn=http/1.1&headerType=none&type=tcp&sni=trj.rollingnext.co.uk#(S829)🇬🇧t.me/PrivateVPNs
 trojan://telegram-id-directvpn@18.188.205.80:22222?security=tls&alpn=http/1.1&headerType=none&type=tcp&sni=trj.rollingnext.co.uk#%40VMESSIRAN+%D8%B3%D8%B1%D9%88%D8%B1+%DB%B8+%D8%A7%D8%B3%D9%81%D9%86%D8%AF
 trojan://9995cc0e-2e9d-4c80-8c81-4fdbb6322a3a@fscus.fscloud123456789.com:443/?type=tcp&security=tls#
