@@ -41,6 +41,14 @@ jobs:
         cat ./bulk/vmess_iran.txt ./bulk/vless_iran.txt > ./bulk/merge2.txt
         sed -i '/^\(vmess:\/\/\|vless:\/\/\)/!d' ./bulk/merge2.txt
     
+    - name: Convert merge1.txt to base64 and save as b64_merge1.txt
+      run: |
+        base64 ./bulk/merge1.txt > ./bulk/b64_merge1.txt
+    
+    - name: Convert merge2.txt to base64 and save as b64_merge2.txt
+      run: |
+        base64 ./bulk/merge2.txt > ./bulk/b64_merge2.txt
+    
     - name: Commit Changes
       run: |
         git config --local user.email "actions@github.com"
