@@ -31,6 +31,16 @@ jobs:
         mv ss_iran.txt bulk/
         mv mixed_iran.txt bulk/
     
+    - name: Create merge1.txt
+      run: |
+        cat ./bulk/vmess_iran.txt ./bulk/trojan_iran.txt > ./bulk/merge1.txt
+        sed -i '/^\(ss:\/\/\|trojan:\/\/\)/!d' ./bulk/merge1.txt
+    
+    - name: Create merge2.txt
+      run: |
+        cat ./bulk/vmess_iran.txt ./bulk/vless_iran.txt > ./bulk/merge2.txt
+        sed -i '/^\(vmess:\/\/\|vless:\/\/\)/!d' ./bulk/merge2.txt
+    
     - name: Commit Changes
       run: |
         git config --local user.email "actions@github.com"
