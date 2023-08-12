@@ -105,122 +105,42 @@ func main() {
 		"vless":  `vless:\/\/`,
 	}
 
-	//protocol := ""
 	for i := 0; i < len(channels); i++ {
-		all_messages := false
-		if strings.Contains(channels[i], "{all_messages}") {
-			all_messages = true
-			channels[i] = strings.Split(channels[i], "{all_messages}")[0]
-		}
 
-		req, err := http.NewRequest("GET", channels[i], nil)
-		if err != nil {
-			log.Fatalf("Error When requesting to: %d Error : %s", channels[i], err)
-		}
+		doc := loadChannel(channels[i])
 
-		resp, err1 := client.Do(req)
-		if err1 != nil {
-			log.Fatal(err1)
-		}
-		defer resp.Body.Close()
-
-		doc, err := goquery.NewDocumentFromReader(resp.Body)
-		if err != nil {
-			log.Fatal(err)
-		}
-
-		messages := doc.Find(".tgme_widget_message_wrap").Length()
-		link, exist := doc.Find(".tgme_widget_message_wrap .js-widget_message").Last().Attr("data-post")
-		if messages < 100 && exist == true {
-			number := strings.Split(link, "/")[1]
-			fmt.Println(number)
-
-			doc = GetMessages(100, doc, number, channels[i])
-		}
-
-		if all_messages {
-			fmt.Println(doc.Find(".js-widget_message_wrap").Length())
-			doc.Find(".tgme_widget_message_text").Each(func(j int, s *goquery.Selection) {
-				// For each item found, get the band and title
-				message_text := s.Text()
-				lines := strings.Split(message_text, "\n")
-				for a := 0; a < len(lines); a++ {
-					for _, regex_value := range myregex {
-						re := regexp.MustCompile(regex_value)
-						lines[a] = re.ReplaceAllStringFunc(lines[a], func(match string) string {
-							return "\n" + match
-						})
-					}
-					for proto, _ := range configs {
-						if strings.Contains(lines[a], proto) {
-							configs["mixed"] += "\n" + lines[a] + "\n"
-						}
+		doc.Find("code,pre").Slice(0, 10).Each(func(j int, s *goquery.Selection) {
+			message_text := s.Text()
+			lines := strings.Split(message_text, "\n")
+			for a := 0; a < len(lines); a++ {
+				for _, regex_value := range myregex {
+					re := regexp.MustCompile(regex_value)
+					lines[a] = re.ReplaceAllStringFunc(lines[a], func(match string) string {
+						return "\n" + match
+					})
+				}
+				for proto, _ := range configs {
+					if strings.Contains(lines[a], proto) {
+						configs["mixed"] += "\n" + lines[a] + "\n"
 					}
 				}
-
-			})
-		} else {
-			doc.Find("code,pre").Each(func(j int, s *goquery.Selection) {
-				// For each item found, get the band and title
-				message_text := s.Text()
-				lines := strings.Split(message_text, "\n")
-				for a := 0; a < len(lines); a++ {
-					for proto_regex, regex_value := range myregex {
-						re := regexp.MustCompile(regex_value)
-						lines[a] = re.ReplaceAllStringFunc(lines[a], func(match string) string {
-							if proto_regex == "ss" {
-								if match[:3] == "vme" {
-									return "\n" + match
-								} else if match[:3] == "vle" {
-									return "\n" + match
-								} else {
-									return "\n" + match
-								}
-							} else {
-								return "\n" + match
-							}
-						})
-
-						if len(strings.Split(lines[a], "\n")) > 1 {
-							myconfigs := strings.Split(lines[a], "\n")
-							for i := 0; i < len(myconfigs); i++ {
-								if myconfigs[i] != "" {
-									re := regexp.MustCompile(regex_value)
-									myconfigs[i] = strings.ReplaceAll(myconfigs[i], " ", "")
-									match := re.FindStringSubmatch(myconfigs[i])
-									if len(match) >= 1 {
-										if proto_regex == "ss" {
-											if match[1][:3] == "vme" {
-												configs["vmess"] += "\n" + myconfigs[i] + "\n"
-											} else if match[1][:3] == "vle" {
-												configs["vless"] += "\n" + myconfigs[i] + "\n"
-											} else {
-												configs["ss"] += "\n" + myconfigs[i][3:] + "\n"
-											}
-										} else {
-											configs[proto_regex] += "\n" + myconfigs[i] + "\n"
-										}
-									}
-
-								}
-
-							}
-						}
-					}
-				}
-			})
-		}
+			}
+		})
 
 	}
 
 	for proto, configcontent := range configs {
-		// 		reverse mode :
-		// 		lines := strings.Split(configcontent, "\n")
-		// 		reversed := reverse(lines)
-		// 		WriteToFile(strings.Join(reversed, "\n"), proto+"_iran.txt")
-		// 		simple mode :
 		WriteToFile(RemoveDuplicate(configcontent), proto+"_iran.txt")
 	}
+
+}
+
+func loadChannel(channel string) *goquery.Document {
+
+	req, _ := http.NewRequest("GET", channel, nil)
+	resp, _ := client.Do(req)
+
+	return goquery.NewDocumentFromReader(resp.Body)
 
 }
 
