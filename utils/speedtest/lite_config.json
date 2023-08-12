@@ -5,7 +5,7 @@
     "sortMethod":"rspeed",
     "concurrency":15,
     "testMode":2,
-    "subscription":"https://raw.githubusercontent.com/lagzian/IranConfigCollector/main/bulk/merge2.txt",
+    "subscription":"https://raw.githubusercontent.com/lagzian/IranConfigCollector/main/bulk/mixed_iran.txt",
     "timeout":12,
     "language":"en",
     "fontSize":24,
