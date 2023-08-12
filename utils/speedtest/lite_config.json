@@ -1,6 +1,6 @@
 {
-    "group":"Default",
-    "speedtestMode":"pingonly",
+    "group":"FreeProxies",
+    "speedtestMode":"all",
     "pingMethod":"googleping",
     "sortMethod":"rspeed",
     "concurrency":15,
@@ -10,5 +10,5 @@
     "language":"en",
     "fontSize":24,
     "theme":"rainbow",
-    "outputMode": 4
+    "generatePicMode": 0
 }
