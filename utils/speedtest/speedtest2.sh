@@ -4,4 +4,4 @@ gzip -d lite-linux-amd64.gz
 wget -O lite_config.json https://raw.githubusercontent.com/lagzian/IranConfigCollector/main/utils/speedtest/lite_config.json
 #运行 LiteSpeedTest
 chmod +x ./lite-linux-amd64
-sudo nohup ./lite-linux-amd64 --config ./lite_config.json --test https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity
+sudo nohup ./lite-linux-amd64 --config ./lite_config.json --test https://raw.githubusercontent.com/lagzian/IranConfigCollector/main/bulk/merge1.txt
