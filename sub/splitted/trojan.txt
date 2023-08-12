@@ -1,0 +1,14 @@
+trojan://xxoo@us.blazeppn.info:443?security=tls#%F0%9F%87%BA%F0%9F%87%B8US-138.197.5.103-4006
+trojan://7c7e0edb-c45a-4c07-b66a-69b191179349@192.9.130.66:443?security=tls&sni=us.disnet.gq#%F0%9F%87%BA%F0%9F%87%B8US-192.9.130.66-1961
+trojan://xxoo@us.blazeppn.info:443?security=tls#%F0%9F%87%BA%F0%9F%87%B8US-138.197.5.103-1933
+trojan://7c7e0edb-c45a-4c07-b66a-69b191179349@192.9.130.66:443?security=tls&sni=us.disnet.gq#%F0%9F%87%BA%F0%9F%87%B8US-192.9.130.66-0678
+trojan://VpRuqFDCJo@sj1.alieszvps.cf:45555?security=tls#%F0%9F%87%BA%F0%9F%87%B8US-138.2.234.225-1934
+trojan://telegram-id-privatevpns@3.70.238.92:22222?security=tls&sni=trj.rollingnext.co.uk#%F0%9F%87%A9%F0%9F%87%AADE-3.70.238.92-0171
+trojan://d12a8310-b971-42de-94e6-7cf6686a7552@gsawshk1.aiopen.cfd:443?security=tls&sni=18-140-66-207.nhost.00cdn.com#%F0%9F%87%AF%F0%9F%87%B5JP-54.238.139.174-0997
+trojan://d12a8310-b971-42de-94e6-7cf6686a7552@pqawsjp3.aiopen.cfd:443?security=tls&sni=18-140-66-207.nhost.00cdn.com#%F0%9F%87%AF%F0%9F%87%B5JP-13.231.203.96-0998
+trojan://d12a8310-b971-42de-94e6-7cf6686a7552@pqawssg001.aiopen.cfd:443?security=tls&sni=18-140-66-207.nhost.00cdn.com#%F0%9F%87%AF%F0%9F%87%B5JP-18.183.157.195-0996
+trojan://d12a8310-b971-42de-94e6-7cf6686a7552@gsawshk2.aiopen.cfd:443?security=tls&sni=18-140-66-207.nhost.00cdn.com#%F0%9F%87%AF%F0%9F%87%B5JP-52.195.166.227-1006
+trojan://d12a8310-b971-42de-94e6-7cf6686a7552@pqawsjp2.aiopen.cfd:443?security=tls&sni=18-140-66-207.nhost.00cdn.com#%F0%9F%87%AF%F0%9F%87%B5JP-54.178.90.186-1007
+trojan://d12a8310-b971-42de-94e6-7cf6686a7552@gsawsjp1.aiopen.cfd:443?security=tls&sni=18-140-66-207.nhost.00cdn.com#%F0%9F%87%AF%F0%9F%87%B5JP-3.112.31.252-0999
+trojan://d12a8310-b971-42de-94e6-7cf6686a7552@gsawsjp2.aiopen.cfd:443?security=tls&sni=18-140-66-207.nhost.00cdn.com#%F0%9F%87%AF%F0%9F%87%B5JP-35.77.48.127-1000
+trojan://8861ad96-45d4-42f7-9703-7de363a39a0f@jp3.fighting.win:10001?security=tls#%F0%9F%87%AF%F0%9F%87%B5JP-131.186.35.57-0185
