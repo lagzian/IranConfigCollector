@@ -16,9 +16,8 @@ import (
 var client = &http.Client{}
 
 func main() {
-
 	channels := []string{
-"https://t.me/s/V2rayNGn",
+		"https://t.me/s/V2rayNGn",
 "https://t.me/s/free4allVPN",
 "https://t.me/s/PrivateVPNs",
 "https://t.me/s/DirectVPN",
@@ -149,7 +148,6 @@ func main() {
 		"vless":  `vless:\/\/`,
 	}
 
-	//protocol := ""
 	for i := 0; i < len(channels); i++ {
 		all_messages := false
 		if strings.Contains(channels[i], "{all_messages}") {
@@ -182,10 +180,11 @@ func main() {
 			doc = GetMessages(100, doc, number, channels[i])
 		}
 
+		var allConfigs []string // List to store all configurations for a channel
+
 		if all_messages {
 			fmt.Println(doc.Find(".js-widget_message_wrap").Length())
 			doc.Find(".tgme_widget_message_text").Each(func(j int, s *goquery.Selection) {
-				// For each item found, get the band and title
 				message_text := s.Text()
 				lines := strings.Split(message_text, "\n")
 				for a := 0; a < len(lines); a++ {
@@ -201,11 +200,9 @@ func main() {
 						}
 					}
 				}
-
 			})
 		} else {
 			doc.Find("code,pre").Each(func(j int, s *goquery.Selection) {
-				// For each item found, get the band and title
 				message_text := s.Text()
 				lines := strings.Split(message_text, "\n")
 				for a := 0; a < len(lines); a++ {
@@ -245,9 +242,7 @@ func main() {
 											configs[proto_regex] += "\n" + myconfigs[i] + "\n"
 										}
 									}
-
 								}
-
 							}
 						}
 					}
@@ -255,21 +250,26 @@ func main() {
 			})
 		}
 
-	}
+		// Append the extracted configurations to the allConfigs list
+		for _, config := range configs {
+			allConfigs = append(allConfigs, config)
+		}
 
-	for proto, configcontent := range configs {
-		// 		reverse mode :
-		// 		lines := strings.Split(configcontent, "\n")
-		// 		reversed := reverse(lines)
-		// 		WriteToFile(strings.Join(reversed, "\n"), proto+"_iran.txt")
-		// 		simple mode :
-		WriteToFile(RemoveDuplicate(configcontent), proto+"_iran.txt")
-	}
+		// Select the last 10 configurations from the list
+		startIndex := len(allConfigs) - 10
+		if startIndex < 0 {
+			startIndex = 0
+		}
+		selectedConfigs := allConfigs[startIndex:]
 
+		// Process and write the selected configurations
+		for _, config := range selectedConfigs {
+			WriteToFile(RemoveDuplicate(config), proto+"_iran.txt")
+		}
+	}
 }
 
 func WriteToFile(fileContent string, filePath string) {
-
 	// Check if the file exists
 	if _, err := os.Stat(filePath); err == nil {
 		// If the file exists, clear its content
@@ -316,12 +316,11 @@ func GetMessages(length int, doc *goquery.Document, number string, channel strin
 	reader2 := strings.NewReader(html2)
 	doc2, _ := goquery.NewDocumentFromReader(reader2)
 
-	// _, exist := doc.Find(".js-messages_more").Attr("href")
 	doc.Find("body").AppendSelection(doc2.Find("body").Children())
 
 	newDoc := goquery.NewDocumentFromNode(doc.Selection.Nodes[0])
-	// fmt.Println(newDoc.Find(".js-messages_more").Attr("href"))
-	messages := newDoc.Find(".js-widget_message_wrap").Length()
+
+	messages := newDoc.Find(".tgme_widget_message_wrap").Length()
 
 	fmt.Println(messages)
 	if messages > length {
@@ -376,3 +375,4 @@ func getKeys(m map[string]bool) []string {
 	}
 	return keys
 }
+
