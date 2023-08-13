@@ -178,7 +178,7 @@ func main() {
 			number := strings.Split(link, "/")[1]
 			fmt.Println(number)
 
-			doc = GetMessages(15, doc, number, channels[i])
+			doc = GetMessages(10, doc, number, channels[i])
 		}
 
 		if all_messages {
