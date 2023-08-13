@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -9,6 +10,7 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
+	"time"
 
 	"github.com/PuerkitoBio/goquery"
 )
@@ -16,121 +18,12 @@ import (
 var client = &http.Client{}
 
 func main() {
-
 	channels := []string{
 		"https://t.me/s/V2rayNGn",
 		"https://t.me/s/free4allVPN",
 		"https://t.me/s/PrivateVPNs",
 		"https://t.me/s/DirectVPN",
 		"https://t.me/s/v2ray_outlineir",
-		"https://t.me/s/NetAccount",
-		"https://t.me/s/oneclickvpnkeys",
-		"https://t.me/s/daorzadannet",
-		"https://t.me/s/Outline_Vpn",
-		"https://t.me/s/vpn_xw",
-		"https://t.me/s/prrofile_purple",
-		"https://t.me/s/ShadowSocks_s",
-		"https://t.me/s/azadi_az_inja_migzare",
-		"https://t.me/s/WomanLifeFreedomVPN",
-		"https://t.me/s/customv2ray",
-		"https://t.me/s/UnlimitedDev",
-		"https://t.me/s/vmessorg",
-		"https://t.me/s/v2rayNG_Matsuri",
-		"https://t.me/s/v2rayngvpn",
-		"https://t.me/s/vpn_ioss",
-		"https://t.me/s/FalconPolV2rayNG",
-		"https://t.me/s/v2rayNGNeT",
-		"https://t.me/s/ShadowProxy66",
-		"https://t.me/s/ipV2Ray",
-		"https://t.me/s/kiava",
-		"https://t.me/s/Helix_Servers",
-		"https://t.me/s/PAINB0Y",
-		"https://t.me/s/VpnProSec",
-		"https://t.me/s/VlessConfig",
-		"https://t.me/s/NIM_VPN_ir",
-		"https://t.me/s/hashmakvpn",
-		"https://t.me/s/iran_ray",
-		"https://t.me/s/INIT1984",
-		"https://t.me/s/ServerNett",
-		"https://t.me/s/Pinkpotatocloud",
-		"https://t.me/s/CloudCityy",
-		"https://t.me/s/Qv2raychannel",
-		"https://t.me/s/shopingv2ray",
-		"https://t.me/s/xrayproxy",
-		"https://t.me/s/Proxy_PJ",
-		"https://t.me/s/V2rayng_Fast",
-		"https://t.me/s/v2ray_swhil",
-		"https://t.me/s/LoRd_uL4mo",
-		"https://t.me/s/proxyymeliii",
-		"https://t.me/s/MsV2ray",
-		"https://t.me/s/free_v2rayyy",
-		"https://t.me/s/v2ray1_ng",
-		"https://t.me/s/vless_vmess",
-		"https://t.me/s/MTConfig",
-		"https://t.me/s/PNG_V2rayNG",
-		"https://t.me/s/v2rayNG_VPNN",
-		"https://t.me/s/vmess_vless_v2rayng",
-		"https://t.me/s/Cov2ray",
-		"https://t.me/s/V2RayTz",
-		"https://t.me/s/VmessProtocol",
-		"https://t.me/s/MehradLearn",
-		"https://t.me/s/SafeNet_Server",
-		"https://t.me/s/ovpn2",
-		"https://t.me/s/lrnbymaa",
-		"https://t.me/s/vpn_tehran",
-		"https://t.me/s/OutlineVpnOfficial",
-		"https://t.me/s/v2ray_vpn_ir",
-		"https://t.me/s/v2_team",
-		"https://t.me/s/ConfigsHUB",
-		"https://t.me/s/V2rayngninja",
-		"https://t.me/s/iSegaro",
-		"https://t.me/s/bright_vpn",
-		"https://t.me/s/talentvpn",
-		"https://t.me/s/proxystore11",
-		"https://t.me/s/yaney_01",
-		"https://t.me/s/rayvps",
-		"https://t.me/s/free1_vpn",
-		"https://t.me/s/Parsashonam",
-		"https://t.me/s/v2rayngvp",
-		"https://t.me/s/Hope_Net",
-		"https://t.me/s/VPNCLOP",
-		"https://t.me/s/fnet00",
-		"https://t.me/s/V2pedia",
-		"https://t.me/s/molovpn",
-		"https://t.me/s/melov2ray",
-		"https://t.me/s/polproxy",
-		"https://t.me/s/Outlinev2rayNG",
-		"https://t.me/s/iP_CF",
-		"https://t.me/s/VPNCUSTOMIZE",
-		"https://t.me/s/MoV2ray",
-		"https://t.me/s/Royalping_ir",
-		"https://t.me/s/v2rayng_vpnrog",
-		"https://t.me/s/v2rayng_config_amin",
-		"https://t.me/s/rxv2ray",
-		"https://t.me/s/Capital_NET",
-		"https://t.me/s/VpnFreeSec",
-		"https://t.me/s/lightning6",
-		"https://t.me/s/WebShecan",
-		"https://t.me/s/v2Line",
-		"https://t.me/s/vmessiran",
-		"https://t.me/s/Configforvpn01",
-		"https://t.me/s/God_CONFIG",
-		"https://t.me/s/Awlix_ir",
-		"https://t.me/s/FreakConfig",
-		"https://t.me/s/frev2ray",
-		"https://t.me/s/vpnmasi",
-		"https://t.me/s/BestV2rang",
-		"https://t.me/s/TPvpn_Official",
-		"https://t.me/s/AM_TEAMMM",
-		"https://t.me/s/Lockey_vpn",
-		"https://t.me/s/XsV2ray",
-		"https://t.me/s/shh_proxy",
-		"https://t.me/s/L_AGVPN13",
-		"https://t.me/s/iTV2RAY",
-		"https://t.me/s/V2rayNGmat",
-		"https://t.me/s/ARv2ray",
-		"https://t.me/s/V2parsin",
-		"https://t.me/s/reality_daily",
 	}
 
 	configs := map[string]string{
@@ -148,7 +41,6 @@ func main() {
 		"vless":  `vless:\/\/`,
 	}
 
-	//protocol := ""
 	for i := 0; i < len(channels); i++ {
 		all_messages := false
 		if strings.Contains(channels[i], "{all_messages}") {
@@ -158,7 +50,7 @@ func main() {
 
 		req, err := http.NewRequest("GET", channels[i], nil)
 		if err != nil {
-			log.Fatalf("Error When requesting to: %d Error : %s", channels[i], err)
+			log.Fatalf("Error When requesting to: %s Error : %s", channels[i], err)
 		}
 
 		resp, err1 := client.Do(req)
@@ -184,7 +76,6 @@ func main() {
 		if all_messages {
 			fmt.Println(doc.Find(".js-widget_message_wrap").Length())
 			doc.Find(".tgme_widget_message_text").Each(func(j int, s *goquery.Selection) {
-				// For each item found, get the band and title
 				message_text := s.Text()
 				lines := strings.Split(message_text, "\n")
 				for a := 0; a < len(lines); a++ {
@@ -194,17 +85,15 @@ func main() {
 							return "\n" + match
 						})
 					}
-					for proto, _ := range configs {
+					for proto := range configs {
 						if strings.Contains(lines[a], proto) {
 							configs["mixed"] += "\n" + lines[a] + "\n"
 						}
 					}
 				}
-
 			})
 		} else {
 			doc.Find("code,pre").Each(func(j int, s *goquery.Selection) {
-				// For each item found, get the band and title
 				message_text := s.Text()
 				lines := strings.Split(message_text, "\n")
 				for a := 0; a < len(lines); a++ {
@@ -244,16 +133,13 @@ func main() {
 											configs[proto_regex] += "\n" + myconfigs[i] + "\n"
 										}
 									}
-
 								}
-
 							}
 						}
 					}
 				}
 			})
 		}
-
 	}
 
 	for proto, configcontent := range configs {
@@ -310,19 +196,12 @@ func load_more(link string) *goquery.Document {
 
 func GetMessages(length int, doc *goquery.Document, number string, channel string) *goquery.Document {
 	x := load_more(channel + "?before=" + number)
-
 	html2, _ := x.Html()
 	reader2 := strings.NewReader(html2)
 	doc2, _ := goquery.NewDocumentFromReader(reader2)
-
-	// _, exist := doc.Find(".js-messages_more").Attr("href")
 	doc.Find("body").AppendSelection(doc2.Find("body").Children())
-
 	newDoc := goquery.NewDocumentFromNode(doc.Selection.Nodes[0])
-	// fmt.Println(newDoc.Find(".js-messages_more").Attr("href"))
 	messages := newDoc.Find(".js-widget_message_wrap").Length()
-
-	fmt.Println(messages)
 	if messages > length {
 		return newDoc
 	} else {
@@ -335,16 +214,7 @@ func GetMessages(length int, doc *goquery.Document, number string, channel strin
 			return newDoc
 		}
 	}
-
 	return newDoc
-}
-
-func reverse(lines []string) []string {
-	for i := 0; i < len(lines)/2; i++ {
-		j := len(lines) - i - 1
-		lines[i], lines[j] = lines[j], lines[i]
-	}
-	return lines
 }
 
 func RemoveDuplicate(config string) string {
@@ -374,4 +244,14 @@ func getKeys(m map[string]bool) []string {
 		i++
 	}
 	return keys
+}
+
+func getTimestamp(message string) int64 {
+	var data map[string]interface{}
+	if err := json.Unmarshal([]byte(message), &data); err != nil {
+		// Handle the error if necessary
+		return 0
+	}
+	timestamp, _ := data["date"].(int64)
+	return timestamp
 }
