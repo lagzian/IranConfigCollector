@@ -132,7 +132,7 @@ func main() {
 		"https://t.me/s/V2parsin",
 		"https://t.me/s/reality_daily",
 		
-			}
+	}
 
 	configs := map[string]string{
 		"ss":     "",
