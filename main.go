@@ -70,7 +70,7 @@ func main() {
 			number := strings.Split(link, "/")[1]
 			fmt.Println(number)
 
-			doc = GetMessages(15, doc, number, channel, 0)
+			doc = GetMessages(100, doc, number, channels[i], 15)
 		}
 
 if all_messages {
@@ -201,40 +201,33 @@ func load_more(link string) *goquery.Document {
 	return doc
 }
 
-func GetMessages(length int, doc *goquery.Document, number string, channel string, count int) *goquery.Document {
+func GetMessages(length int, doc *goquery.Document, number string, channel string, messagesToFetch int) *goquery.Document {
+	x := load_more(channel + "?before=" + number)
 
-  // Increment counter
-  count++
+	html2, _ := x.Html()
+	reader2 := strings.NewReader(html2)
+	doc2, _ := goquery.NewDocumentFromReader(reader2)
 
-  x := load_more(channel + "?before=" + number)
+	// _, exist := doc.Find(".js-messages_more").Attr("href")
+	doc.Find("body").AppendSelection(doc2.Find("body").Children())
 
-  html2, _ := x.Html()
-  reader2 := strings.NewReader(html2)
-  doc2, _ := goquery.NewDocumentFromReader(reader2)
+	newDoc := goquery.NewDocumentFromNode(doc.Selection.Nodes[0])
+	messages := newDoc.Find(".js-widget_message_wrap").Length()
 
-  doc.Find("body").AppendSelection(doc2.Find("body").Children())
+	if messages > length {
+		return newDoc
+	} else if messagesToFetch > 0 {
+		num, _ := strconv.Atoi(number)
+		n := num - 21
+		if n > 0 {
+			ns := strconv.Itoa(n)
+			return GetMessages(length, newDoc, ns, channel, messagesToFetch-1)
+		} else {
+			return newDoc
+		}
+	}
 
-  newDoc := goquery.NewDocumentFromNode(doc.Selection.Nodes[0])
-
-  if count >= length {
-    return newDoc
-  }
-
-  messages := newDoc.Find(".js-widget_message_wrap").Length()
-
-  if messages > length {
-
-    num, _ := strconv.Atoi(number)
-    n := num - 21
-    if n > 0 {
-      ns := strconv.Itoa(n)
-      return GetMessages(length, newDoc, ns, channel, count)
-    }
-
-  }
-
-  return newDoc
-
+	return newDoc
 }
 
 func reverse(lines []string) []string {
