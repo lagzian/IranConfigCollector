@@ -204,7 +204,7 @@ if all_messages {
 				}
 			}
 		}
-		return j < messages-10
+		return true
 	})
 		} else {
 			doc.Find("code,pre").Each(func(j int, s *goquery.Selection) {
