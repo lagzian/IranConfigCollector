@@ -43,8 +43,8 @@ jobs:
 
     - name: Create merge3.txt
       run: |
-        cat ./bulk/vmess_iran.txt ./bulk/vless_iran.txt ./bulk/ss_iran.txt ./bulk/trojan_iran.txt > ./bulk/merge3.txt
-        sed -i '/^\(vmess:\/\/\|vless:\/\/\|ss:\/\/\|trojan:\/\/\)/!d' ./bulk/merge3.txt
+        cat ./bulk/vmess_iran.txt ./bulk/ss_iran.txt ./bulk/trojan_iran.txt > ./bulk/merge3.txt
+        sed -i '/^\(vmess:\/\/\|ss:\/\/\|trojan:\/\/\)/!d' ./bulk/merge3.txt
     
     - name: Convert merge1.txt to base64 and save as b64_merge1.txt
       run: |
