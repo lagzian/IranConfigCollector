@@ -203,6 +203,7 @@ if all_messages {
 					}
 				}
 			}
+			return j >= messages-10
 		}
 		return true
 	})
