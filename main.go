@@ -186,7 +186,7 @@ func main() {
 if all_messages {
 	fmt.Println(doc.Find(".js-widget_message_wrap").Length())
 	// Get the last 15 messages
-	messageSelections := doc.Find(".tgme_widget_message_wrap").Slice(-15, -1)
+	messageSelections := doc.Find(".tgme_widget_message_wrap").Slice(messages-15, messages)
 	messageSelections.Each(func(j int, s *goquery.Selection) {
 		messageText := s.Find(".tgme_widget_message_text").Text()
 		lines := strings.Split(messageText, "\n")
