@@ -251,19 +251,16 @@ func main() {
 			})
 		}
 
-		// Append the extracted configurations to the allConfigs list
 		for _, config := range configs {
 			allConfigs = append(allConfigs, config)
 		}
 
-		// Select the last 10 configurations from the list
 		startIndex := len(allConfigs) - 10
 		if startIndex < 0 {
 			startIndex = 0
 		}
 		selectedConfigs := allConfigs[startIndex:]
 
-		// Process and write the selected configurations
 		for _, config := range selectedConfigs {
 			WriteToFile(RemoveDuplicate(config), proto+"_iran.txt")
 		}
@@ -271,28 +268,23 @@ func main() {
 }
 
 func WriteToFile(fileContent string, filePath string) {
-	// Check if the file exists
 	if _, err := os.Stat(filePath); err == nil {
-		// If the file exists, clear its content
 		err = ioutil.WriteFile(filePath, []byte{}, 0644)
 		if err != nil {
 			fmt.Println("Error clearing file:", err)
 			return
 		}
 	} else if os.IsNotExist(err) {
-		// If the file does not exist, create it
 		_, err = os.Create(filePath)
 		if err != nil {
 			fmt.Println("Error creating file:", err)
 			return
 		}
 	} else {
-		// If there was some other error, print it and return
 		fmt.Println("Error checking file:", err)
 		return
 	}
 
-	// Write the new content to the file
 	err := ioutil.WriteFile(filePath, []byte(fileContent), 0644)
 	if err != nil {
 		fmt.Println("Error writing file:", err)
@@ -351,17 +343,14 @@ func reverse(lines []string) []string {
 func RemoveDuplicate(config string) string {
 	lines := strings.Split(config, "\n")
 
-	// Use a map to keep track of unique lines
 	uniqueLines := make(map[string]bool)
 
-	// Loop over lines and add unique lines to map
 	for _, line := range lines {
 		if len(line) > 0 {
 			uniqueLines[line] = true
 		}
 	}
 
-	// Join unique lines into a string
 	uniqueString := strings.Join(getKeys(uniqueLines), "\n")
 
 	return uniqueString
@@ -376,4 +365,3 @@ func getKeys(m map[string]bool) []string {
 	}
 	return keys
 }
-
