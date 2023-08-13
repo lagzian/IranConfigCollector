@@ -73,28 +73,29 @@ func main() {
 			doc = GetMessages(100, doc, number, channels[i])
 		}
 
-		if all_messages {
-			fmt.Println(doc.Find(".js-widget_message_wrap").Length())
-			doc.Find(".tgme_widget_message_wrap").EachWithBreak(func(j int, s *goquery.Selection) bool {
-				if j >= messages-15 {
-					messageText := s.Find(".tgme_widget_message_text").Text()
-					lines := strings.Split(messageText, "\n")
-				for a := 0; a < len(lines); a++ {
-					for _, regex_value := range myregex {
-						re := regexp.MustCompile(regex_value)
-						lines[a] = re.ReplaceAllStringFunc(lines[a], func(match string) string {
-							return "\n" + match
-						})
-					}
-					for proto, _ := range configs {
-						if strings.Contains(lines[a], proto) {
-							configs["mixed"] += "\n" + lines[a] + "\n"
-						}
+if all_messages {
+	fmt.Println(doc.Find(".js-widget_message_wrap").Length())
+	// Get the last 15 messages
+	doc.Find(".tgme_widget_message_wrap").EachWithBreak(func(j int, s *goquery.Selection) bool {
+		if j >= messages-15 {
+			messageText := s.Find(".tgme_widget_message_text").Text()
+			lines := strings.Split(messageText, "\n")
+			for a := 0; a < len(lines); a++ {
+				for _, regex_value := range myregex {
+					re := regexp.MustCompile(regex_value)
+					lines[a] = re.ReplaceAllStringFunc(lines[a], func(match string) string {
+						return "\n" + match
+					})
+				}
+				for proto, _ := range configs {
+					if strings.Contains(lines[a], proto) {
+						configs["mixed"] += "\n" + lines[a] + "\n"
 					}
 				}
-				return j < messages-15
-
-			})
+			}
+		}
+		return j < messages-15
+	})
 		} else {
 			doc.Find("code,pre").Each(func(j int, s *goquery.Selection) {
 				// For each item found, get the band and title
