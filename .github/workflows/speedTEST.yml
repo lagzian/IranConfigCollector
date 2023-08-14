@@ -40,9 +40,9 @@ jobs:
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
           git pull origin main
-          git add EternityBase
-          git add Eternity
-          git add Eternity.txt
+          git add V2Base
+          git add V2
+          git add V2.txt
           git add ./sub/sub_merge.txt
           git add ./sub/sub_merge_base64.txt
           git add LogInfo.txt
