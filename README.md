@@ -10,7 +10,7 @@ The robot collects and stores the configs hourly in the bulk folder. Next, speed
 
 | Configuration | Normal | Base64 Encoded | Meta/Clash | SING-BOX |
 |-|-|-|-|-|  
-| 200 Speed Tested Configs (Mix) | [Normal](https://raw.githubusercontent.com/lagzian/IranConfigCollector/main/V2.txt) | [Base64 Encoded](https://raw.githubusercontent.com/lagzian/IranConfigCollector/main/Base64.txt) | [Clash YAML]() | [JSON](https://yebekhe.serv00.net/api/singbox/?url=https://raw.githubusercontent.com/lagzian/IranConfigCollector/main/V2.txt&limit=0&tun=true) |
+| 200 Speed Tested Configs (Mix) | [Normal](https://raw.githubusercontent.com/lagzian/IranConfigCollector/main/V2.txt) | [Base64 Encoded](https://raw.githubusercontent.com/lagzian/IranConfigCollector/main/Base64.txt) | [Clash YAML](-) | [JSON](https://yebekhe.serv00.net/api/singbox/?url=https://raw.githubusercontent.com/lagzian/IranConfigCollector/main/V2.txt&limit=0&tun=true) |
 
 
 ## How to Use
