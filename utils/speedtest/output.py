@@ -7,9 +7,9 @@ out_json = './out.json'
 
 sub_all_base64 = "./sub/sub_merge_base64.txt"
 sub_all = "./sub/sub_merge.txt"
-V2_file_base64 = "./V2"
+Base64_file_base64 = "./Base64.txt"
 V2_file = "./V2.txt"
-V2_Base = "./V2Base"
+Allconfig_Base = "./Allconfig"
 
 splitted_output = "./sub/splitted/"
 
@@ -98,7 +98,7 @@ def output(list, num):
         print('Write All Base64 Success!')
         f.close()
 
-    with open(V2_file_base64, 'w+', encoding='utf-8') as f:
+    with open(Base64_file_base64, 'w+', encoding='utf-8') as f:
         f.write(content_base64_part)
         print('Write Part Base64 Success!')
         f.close()
@@ -108,7 +108,7 @@ def output(list, num):
         print('Write All Success!')
         f.close()
 
-    with open(V2_Base, 'w') as f:
+    with open(Allconfig_Base, 'w') as f:
         f.write(content)
         print('Write Base Success!')
         f.close()
