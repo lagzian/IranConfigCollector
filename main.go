@@ -145,6 +145,7 @@ func main() {
 		"https://t.me/s/ultrasurf_12",
 		"https://t.me/s/God_CONFIG",
 		"https://t.me/s/fnet00",
+		"https://t.me/s/therealaleph",
 
 	}
 
