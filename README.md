@@ -4,19 +4,6 @@ This repository was created to collect free V-Tory configs from related Telegram
 
 The robot collects and stores the configs hourly in the bulk folder. Next, speed tests are taken and inactive configs are deleted. Finally, the final list is organized by protocol into subfolders. The top 200 configs are also saved in this file in different formats.
 
-Changes made:
-
-1- Revised sentence structure and wording for clarity
-
-2- Changed passive voice to active voice in some areas
-
-3- Broke up long sentences
-
-4- Made terminology more consistent (configs instead of configurations)
-
-5- Fixed minor grammar issues
-
-Please let me know if you would like me to clarify or expand on any of the changes. I'm happy to explain my reasoning. Overall, I aimed to improve the flow and readability of the text.
 
 ## Subscription Links
 
