@@ -6,11 +6,11 @@ The robot collects and stores the configs hourly in the bulk folder. Next, speed
 
 Changes made:
 
-    Revised sentence structure and wording for clarity
-    Changed passive voice to active voice in some areas
-    Broke up long sentences
-    Made terminology more consistent (configs instead of configurations)
-    Fixed minor grammar issues
+1- Revised sentence structure and wording for clarity
+2- Changed passive voice to active voice in some areas
+3- Broke up long sentences
+4- Made terminology more consistent (configs instead of configurations)
+5- Fixed minor grammar issues
 
 Please let me know if you would like me to clarify or expand on any of the changes. I'm happy to explain my reasoning. Overall, I aimed to improve the flow and readability of the text.
 
@@ -19,7 +19,7 @@ Please let me know if you would like me to clarify or expand on any of the chang
 
 | Configuration | Normal | Base64 Encoded | Meta/Clash | SING-BOX |
 |-|-|-|-|-|  
-| Trinity (SS) | [Normal](https://raw.githubusercontent.com/lagzian/SS-Collector/main/SS/Trinity.txt) | [Base64 Encoded](https://raw.githubusercontent.com/lagzian/SS-Collector/main/SS/Trinity) | [Clash YAML](https://raw.githubusercontent.com/lagzian/SS-Collector/main/SS/trinity_clash.yaml) | [JSON](https://raw.githubusercontent.com/lagzian/SS-Collector/main/SS/trinity_singbox.json) |
+| 200 Speed Tested Configs (Mix) | [Normal](https://raw.githubusercontent.com/lagzian/IranConfigCollector/main/V2.txt) | [Base64 Encoded](https://raw.githubusercontent.com/lagzian/IranConfigCollector/main/V2) | [Clash YAML](https://raw.githubusercontent.com/lagzian/SS-Collector/main/SS/trinity_clash.yaml) | [JSON](https://yebekhe.serv00.net/api/singbox/?url=https://raw.githubusercontent.com/lagzian/IranConfigCollector/main/V2.txt&limit=0&tun=true) |
 
 
 ## How to Use
