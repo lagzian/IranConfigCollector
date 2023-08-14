@@ -1,18 +1,21 @@
-# IranConfigCollector: Shadowsocks/VMESS/Reality/SING-BOX Configurations
+# IranConfigCollector: VMESS/VLESS/SS/Trojan Configurations
 
-This repository contains various Shadowsocks, VMESS, SING-BOX and Reality configuration lists that get updated automatically. Shadowsocks, SIG-BOX and VMESS lists are updated every 12 hours, while Reality lists are updated every 1 hour. The Trinity links will be updated every 5 hours. 
+This repository was created to collect free V-Tory configs from related Telegram channels. Only the last 5 configurations from each channel are collected.
+
+The robot collects and stores the configs hourly in the bulk folder. Next, speed tests are taken and inactive configs are deleted. Finally, the final list is organized by protocol into subfolders. The top 200 configs are also saved in this file in different formats.
+
+Changes made:
+
+    Revised sentence structure and wording for clarity
+    Changed passive voice to active voice in some areas
+    Broke up long sentences
+    Made terminology more consistent (configs instead of configurations)
+    Fixed minor grammar issues
+
+Please let me know if you would like me to clarify or expand on any of the changes. I'm happy to explain my reasoning. Overall, I aimed to improve the flow and readability of the text.
 
 ## Subscription Links
 
-| Configuration | Normal | Base64 Encoded | Meta/Clash | SING-BOX |
-|-|-|-|-|-|  
-| ShadowSocks (SS) | [Normal](https://raw.githubusercontent.com/lagzian/SS-Collector/main/shadowsockes.txt) | [Base64 Encoded](https://raw.githubusercontent.com/lagzian/SS-Collector/main/SS_B64.txt) | [Clash YAML](https://raw.githubusercontent.com/lagzian/SS-Collector/main/ss_clash.yaml) | [JSON](https://raw.githubusercontent.com/lagzian/SS-Collector/main/ss_singbox.json) |
-| VMESS | [Normal](https://raw.githubusercontent.com/lagzian/SS-Collector/main/vmess.txt) | [Base64 Encoded](https://raw.githubusercontent.com/lagzian/SS-Collector/main/vmess_B64.txt) | [Clash YAML](https://raw.githubusercontent.com/lagzian/SS-Collector/main/vmess_clash.yaml) | [JSON](https://raw.githubusercontent.com/lagzian/SS-Collector/main/vmess_singbox.json) |
-| Reality | [Normal](https://raw.githubusercontent.com/lagzian/SS-Collector/main/reality.txt) | [Base64 Encoded](https://raw.githubusercontent.com/lagzian/SS-Collector/main/reality_B64.txt) | [Meta Clash](https://raw.githubusercontent.com/lagzian/SS-Collector/main/reality_clash.yaml) |[JSON](https://raw.githubusercontent.com/lagzian/TelegramV2rayCollector/main/singbox/sfi_sfa.json) |
-| MIX(VMESS/SS) | [Normal](https://raw.githubusercontent.com/lagzian/SS-Collector/main/mix.txt) | [Base64 Encoded](https://raw.githubusercontent.com/lagzian/SS-Collector/main/mix_B64.txt) | [Clash YAML](https://raw.githubusercontent.com/lagzian/SS-Collector/main/mix_clash.yaml) |[JSON](https://raw.githubusercontent.com/lagzian/SS-Collector/main/mix_singbox.json) |
-
-
-## Trinity Shadowsocks Links (300 Speed Tested Configs )
 
 | Configuration | Normal | Base64 Encoded | Meta/Clash | SING-BOX |
 |-|-|-|-|-|  
