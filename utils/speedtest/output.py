@@ -7,9 +7,9 @@ out_json = './out.json'
 
 sub_all_base64 = "./sub/sub_merge_base64.txt"
 sub_all = "./sub/sub_merge.txt"
-Eternity_file_base64 = "./Eternity"
-Eternity_file = "./Eternity.txt"
-Eternity_Base = "./EternityBase"
+V2_file_base64 = "./V2"
+V2_file = "./V2.txt"
+V2_Base = "./V2Base"
 
 splitted_output = "./sub/splitted/"
 
@@ -98,7 +98,7 @@ def output(list, num):
         print('Write All Base64 Success!')
         f.close()
 
-    with open(Eternity_file_base64, 'w+', encoding='utf-8') as f:
+    with open(V2_file_base64, 'w+', encoding='utf-8') as f:
         f.write(content_base64_part)
         print('Write Part Base64 Success!')
         f.close()
@@ -108,12 +108,12 @@ def output(list, num):
         print('Write All Success!')
         f.close()
 
-    with open(Eternity_Base, 'w') as f:
+    with open(V2_Base, 'w') as f:
         f.write(content)
         print('Write Base Success!')
         f.close()
 
-    with open(Eternity_file, 'w') as f:
+    with open(V2_file, 'w') as f:
         f.write('\n'.join(output_list[0:num]))
         print('Write Part Base Success!')
         f.close()
