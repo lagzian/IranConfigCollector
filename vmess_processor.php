@@ -44,7 +44,7 @@ function remove_duplicate_vmess($input)
 }
 
 // Fetch VMess configurations from URL
-$vmess_url = "https://raw.githubusercontent.com/lagzian/TelegramV2rayCollector/main/sub/vmess_base64";
+$vmess_url = "https://raw.githubusercontent.com/lagzian/TelegramV2rayCollector/main/sub/vmess";
 $vmess_data = file_get_contents($vmess_url);
 
 // Process VMess configurations
