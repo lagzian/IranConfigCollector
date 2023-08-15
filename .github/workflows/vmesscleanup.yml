@@ -1,41 +1,36 @@
-name: Clean VMess Configurations
+name: Process VMess Configurations
 
+permissions:
 on:
-  workflow_dispatch:
-    inputs:
-      run-now:
-        description: 'Run the cleanup now'
-        required: false
-        default: true
-  schedule:
-    - cron: '0 */1 * * *' # Schedule to run every hour
+  push:
+    branches:
+      - main
 
 jobs:
-  cleanup_vmess:
+  process-vmess:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
         with:
-          python-version: 3.x
+          php-version: '7.4'  # Replace with your desired PHP version
 
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-        working-directory: . # Use root folder as working directory
+          php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+          php composer-setup.php
+          php -r "unlink('composer-setup.php');"
+          php composer.phar install
 
-      - name: Run Python script
-        run: python vmesscleaner.py # Replace with the actual script name
+      - name: Run PHP script
+        run: php vmess_processor.php
 
-      - name: Commit and push changes
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add .
-          git commit -m "Update cleaned VMess configurations"
-          git push
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: vmess-configs
+          path: output.txt
