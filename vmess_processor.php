@@ -50,6 +50,6 @@ $vmess_data = file_get_contents($vmess_url);
 // Process VMess configurations
 $output = remove_duplicate_vmess($vmess_data);
 
-// Save output to a file
-file_put_contents("output.txt", $output);
+// Save processed output to a file
+file_put_contents("vmessclean.txt", $output);
 ?>
