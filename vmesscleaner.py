@@ -38,7 +38,7 @@ def remove_duplicate_vmess(input_data):
     return output
 
 def main():
-    url = "https://raw.githubusercontent.com/lagzian/IranConfigCollector/main/sub/sub_merge_base64.txt"
+    url = "https://raw.githubusercontent.com/lagzian/TelegramV2rayCollector/main/sub/vmess_base64"
     response = requests.get(url)
     input_data = response.text
     
