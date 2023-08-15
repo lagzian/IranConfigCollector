@@ -21,9 +21,6 @@ jobs:
       - name: Run PHP script
         run: php vmess_processor.php
 
-      - name: Save processed file
-        run: mv output.txt vmessclean.txt
-
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
