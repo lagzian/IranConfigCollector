@@ -1,10 +1,9 @@
 name: Process VMess Configurations
 
 on:
+  schedule:
+    - cron: "0 * * * *"  # Run every hour
   workflow_dispatch:
-  push:
-    branches:
-      - main
 
 jobs:
   process-vmess:
@@ -22,8 +21,11 @@ jobs:
       - name: Run PHP script
         run: php vmess_processor.php
 
+      - name: Save processed file
+        run: mv output.txt vmessclean.txt
+
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
           name: vmess-configs
-          path: output.txt
+          path: vmessclean.txt
