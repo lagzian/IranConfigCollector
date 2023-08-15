@@ -19,13 +19,6 @@ jobs:
         with:
           php-version: '7.4'  # Replace with your desired PHP version
 
-      - name: Install dependencies
-        run: |
-          php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-          php composer-setup.php
-          php -r "unlink('composer-setup.php');"
-          php composer.phar install
-
       - name: Run PHP script
         run: php vmess_processor.php
 
