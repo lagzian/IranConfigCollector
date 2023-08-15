@@ -1,0 +1,42 @@
+name: Clean VMess Configurations
+
+on:
+  workflow_dispatch:
+    inputs:
+      run-now:
+        description: 'Run the cleanup now'
+        required: false
+        default: true
+  schedule:
+    - cron: '0 */1 * * *' # Schedule to run every hour
+
+jobs:
+  cleanup_vmess:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+        working-directory: ./sub/splitted # Adjust the path as needed
+
+      - name: Run Python script
+        run: python vmesscleaner.py # Replace with the actual script name
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "Update cleaned VMess configurations"
+          git push
+
