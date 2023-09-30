@@ -11,13 +11,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout Code
+        uses: actions/checkout@v2
 
-      - uses: actions/setup-node@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
         with:
           node-version: "14.x"
 
-      - uses: actions/setup-python@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
         with:
           python-version: "3.x"
 
@@ -33,7 +36,6 @@ jobs:
           sleep 5
           sudo sh ./utils/speedtest/speedtest2.sh
           python ./utils/speedtest/output.py
-      
 
       - name: Commit Changes
         run: |
