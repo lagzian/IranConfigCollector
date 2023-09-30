@@ -1,2 +1,2 @@
-ss://YWVzLTI1Ni1nY206enJoQ0xJZVlxQUBnZXJtYW5nb2QucmVmbGVjaW9uLnNob3A6MTczNTE#god_config-7trojan://telegram-id-privatevpns@35.180.248.197:22222?security=tls&alpn=http/1.1&headerType=none&type=tcp&sni=trj.rollingnext.co.uk%23(S304)%F0%9F%87%A8%F0%9F%87%B5t.me/PrivateVPNs
 ss://YWVzLTI1Ni1nY206Mk8zdExEMHNRTEBnZXJtYW5nb2QucmVmbGVjaW9uLnNob3A6NTAyNDA#%40god_config-4
+ss://YWVzLTI1Ni1nY206enJoQ0xJZVlxQUBnZXJtYW5nb2QucmVmbGVjaW9uLnNob3A6MTczNTE#god_config-7trojan://telegram-id-privatevpns@15.236.184.85:22222?security=tls&alpn=http/1.1&headerType=none&type=tcp&sni=trj.rollingnext.co.uk%23(S104)%F0%9F%87%A8%F0%9F%87%B5t.me/PrivateVPNs
