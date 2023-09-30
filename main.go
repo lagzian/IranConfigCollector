@@ -19,6 +19,24 @@ var client = &http.Client{}
 func main() {
 	channels := []string{
 		"https://t.me/s/PrivateVPNs",
+		"https://t.me/s/FreeV2rays",
+		"https://t.me/s/DigiV2ray",
+		"https://t.me/s/v2rayNG_VPN",
+		"https://t.me/s/iranvpnet",
+		"https://t.me/s/v2RayChannel",
+		"https://t.me/s/configV2rayNG",
+		"https://t.me/s/vpn_proxy_custom",
+		"https://t.me/s/vpnmasi",
+		"https://t.me/s/HTTPCustomLand",
+		"https://t.me/s/vip_vpn_2022",
+		"https://t.me/s/FOX_VPN66",
+		"https://t.me/s/VorTexIRN",
+		"https://t.me/s/YtTe3la",
+		"https://t.me/s/Network_442",
+		"https://t.me/s/ultrasurf_12",
+		"https://t.me/s/God_CONFIG",
+		"https://t.me/s/fnet00",
+		"https://t.me/s/therealaleph",
 
 	}
 
