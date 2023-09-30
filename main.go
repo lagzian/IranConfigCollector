@@ -111,18 +111,6 @@ func main() {
 		"https://t.me/s/Parsashonam",
 		"https://t.me/s/Hope_Net",
 		"https://t.me/s/VPNCLOP",
-		"https://t.me/s/UnlimitedDev",
-		"https://t.me/s/vmessorg",
-		"https://t.me/s/v2rayNG_Matsuri",
-		"https://t.me/s/v2rayngvpn",
-		"https://t.me/s/FalconPolV2rayNG",
-		"https://t.me/s/v2rayNGNeT",
-		"https://t.me/s/ShadowProxy66",
-		"https://t.me/s/ipV2Ray",
-		"https://t.me/s/kiava",
-		"https://t.me/s/Helix_Servers",
-		"https://t.me/s/PAINB0Y",
-		"https://t.me/s/VpnProSec",
 		"https://t.me/s/VlessConfig",
 		"https://t.me/s/NIM_VPN_ir",
 		"https://t.me/s/hashmakvpn",
@@ -134,8 +122,7 @@ func main() {
 		"https://t.me/s/shopingv2ray",
 		"https://t.me/s/Proxy_PJ",
 		"https://t.me/s/V2rayng_Fast",
-		"https://t.me/s/v2ray_swhil",
-		
+		"https://t.me/s/v2ray_swhil",		
 
 	}
 
