@@ -1,0 +1,1 @@
+vless://a26d01a2-0c63-4a59-a1a0-3b6ee222fd85@95.217.216.45:443?encryption=none&security=tls&sni=ifi1.kaghazacharrangi.sbs&type=ws&path=/%23%F0%9F%87%AB%F0%9F%87%AE%20%D8%AA%D9%84%DA%AF%D8%B1%D8%A7%D9%85%20@FreakConfig
